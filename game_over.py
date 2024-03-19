@@ -5,6 +5,8 @@ def game_over_screen(screen, score):
     # Display game over screen
     screen.fill((0, 0, 0))  # Fill the screen with black color
 
+    play_game_sound = pygame.mixer.Sound("sfx/sound/play.wav")
+
     # Game over text
     game_over_font = pygame.font.SysFont(None, 72)
     game_over_text = game_over_font.render("Game Over", True, (255, 0, 0))
@@ -40,6 +42,7 @@ def game_over_screen(screen, score):
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if play_again_rect.collidepoint(event.pos):
                     waiting = False  # Exit the loop to restart the game
+                    play_game_sound.play()
                     return "game" # Retourne "game" pour relancer le jeu
                 elif return_to_menu_rect.collidepoint(event.pos):
                     waiting = False  # Exit the loop to return to the menu

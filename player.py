@@ -15,6 +15,12 @@ class Player:
 
         self.rect = self.standing_surface.get_rect(center=(self.x_position, self.y_position))
 
+        self.jump_sound = pygame.mixer.Sound("sfx/sound/jump.wav")
+        self.jump_sound.set_volume(0.1)
+
+        # Variable pour garder une trace de l'état du saut
+        self.sound_playing = False
+
     def move_left(self):
         self.x_position -= 5  # Adjust the value for speed
         self.x_position = max(0, self.x_position)
@@ -24,7 +30,10 @@ class Player:
         self.x_position = min(self.x_position, 900 - self.standing_surface.get_width())
 
     def jump(self):
-        self.jumping = True
+        if not self.sound_playing:  # Vérifier si le son est déjà en train d'être joué
+            self.jumping = True
+            self.jump_sound.play()
+            self.sound_playing = True
 
     def update(self):
         if self.jumping:
@@ -36,6 +45,9 @@ class Player:
             self.rect = self.jumping_surface.get_rect(center=(self.x_position, self.y_position))
         else:
             self.rect = self.standing_surface.get_rect(center=(self.x_position, self.y_position))
+        # Mettre à jour l'état du saut
+        if not self.jumping and self.sound_playing:
+            self.sound_playing = False
 
     def draw(self, screen):
         if self.jumping:

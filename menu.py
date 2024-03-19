@@ -8,6 +8,8 @@ def main_menu():
     SCREEN = pygame.display.set_mode((900, 950))
     pygame.display.set_caption("Robot Run")
 
+    play_game_sound = pygame.mixer.Sound("sfx/sound/play.wav")
+
     menu_font = pygame.font.SysFont(None, 48)
     title_text = menu_font.render("Robot Run", True, (255, 255, 255))
     title_rect = title_text.get_rect(center=(SCREEN.get_width() // 2, SCREEN.get_height() // 2 - 50))
@@ -28,5 +30,6 @@ def main_menu():
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if play_rect.collidepoint(event.pos):
                     waiting = False
+                    play_game_sound.play()
                     from game import run_game
                     run_game()

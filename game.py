@@ -12,6 +12,8 @@ CLOCK = pygame.time.Clock()
 SCREEN = pygame.display.set_mode((900, 950))
 pygame.display.set_caption("Robot Run")
 
+game_over_sound = pygame.mixer.Sound("sfx/sound/game_over.wav")
+
 BACKGROUND = pygame.image.load("images/background.jpeg")
 
 player = Player()
@@ -64,10 +66,12 @@ def run_game():
         enemies = [enemy for enemy in enemies if enemy.rect.right > 0]
 
         if player.rect.collidelist([enemy.rect for enemy in enemies]) != -1:
+            game_over_sound.play()
             game_over_action = game_over_screen(SCREEN, score)
             if game_over_action == "game":
                 reset_game()
             elif game_over_action == "menu":
+                reset_game()
                 main_menu()
             continue  # Continuez directement à la prochaine itération de la boucle pour éviter d'afficher le score après game over
 
