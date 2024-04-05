@@ -1,6 +1,8 @@
 import pygame
 import sys
 
+from parameters import parameters_screen
+
 def main_menu():
     pygame.init()
 
@@ -19,6 +21,10 @@ def main_menu():
     play_rect = play_text.get_rect(center=(SCREEN.get_width() // 2, SCREEN.get_height() // 2 + 50))
     SCREEN.blit(play_text, play_rect)
 
+    parameter_text = menu_font.render("Parametre", True, (255, 255, 255))
+    parameter_rect = parameter_text.get_rect(center=(SCREEN.get_width() // 2, SCREEN.get_height() // 2 + 100))
+    SCREEN.blit(parameter_text, parameter_rect)
+
     pygame.display.update()
 
     waiting = True
@@ -33,3 +39,5 @@ def main_menu():
                     play_game_sound.play()
                     from game import run_game
                     run_game()
+                elif parameter_rect.collidepoint(event.pos):
+                    parameters_screen(SCREEN)

@@ -8,11 +8,6 @@ pygame.init()
 if __name__ == "__main__":
     current_screen = "menu"  # Démarre avec le menu principal
 
-    # Charger la musique de fond
-    pygame.mixer.music.load("sfx/music/game_music.wav")
-    pygame.mixer.music.play(-1)  # Jouer la musique en boucle
-    pygame.mixer.music.set_volume(0.2)
-
     while True:
         if current_screen == "menu":
             current_screen = main_menu()  # Affiche le menu principal et met à jour le statut du jeu

@@ -5,7 +5,6 @@ from player import Player
 from enemy import Enemy
 from menu import main_menu
 from game_over import game_over_screen
-
 pygame.init()
 
 CLOCK = pygame.time.Clock()
