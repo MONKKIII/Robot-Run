@@ -49,11 +49,11 @@ class Player:
         if not self.jumping and self.sound_playing:
             self.sound_playing = False
 
-    def draw(self, screen):
+    def draw(self, SCREEN):
         if self.jumping:
-            screen.blit(self.jumping_surface, self.rect)
+            SCREEN.blit(self.jumping_surface, self.rect)
         else:
-            screen.blit(self.standing_surface, self.rect)
+            SCREEN.blit(self.standing_surface, self.rect)
 
     def reset(self):
         # Reset player position

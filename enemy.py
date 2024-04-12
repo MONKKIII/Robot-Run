@@ -10,5 +10,5 @@ class Enemy:
     def update(self):
         self.rect.move_ip(-5, 0)
 
-    def draw(self, screen):
-        screen.blit(self.surface, self.rect)
+    def draw(self, SCREEN):
+        SCREEN.blit(self.surface, self.rect)

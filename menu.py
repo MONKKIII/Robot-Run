@@ -1,7 +1,7 @@
 import pygame
 import sys
+from utils import load_scores
 
-from parameters import parameters_screen
 
 def main_menu():
     pygame.init()
@@ -9,6 +9,9 @@ def main_menu():
     CLOCK = pygame.time.Clock()
     SCREEN = pygame.display.set_mode((900, 950))
     pygame.display.set_caption("Robot Run")
+
+    # Chargement des scores
+    scores = load_scores()
 
     play_game_sound = pygame.mixer.Sound("sfx/sound/play.wav")
 
@@ -21,10 +24,15 @@ def main_menu():
     play_rect = play_text.get_rect(center=(SCREEN.get_width() // 2, SCREEN.get_height() // 2 + 50))
     SCREEN.blit(play_text, play_rect)
 
-    parameter_text = menu_font.render("Parametre", True, (255, 255, 255))
-    parameter_rect = parameter_text.get_rect(center=(SCREEN.get_width() // 2, SCREEN.get_height() // 2 + 100))
-    SCREEN.blit(parameter_text, parameter_rect)
+    # Chargement de l'image de la poubelle
+    scoreboard_image = pygame.transform.scale(pygame.image.load("images/score_board.png"), (102, 116))
+    scoreboard_image_rect = scoreboard_image.get_rect(center=(SCREEN.get_width() // 2 + 380, SCREEN.get_height() // 2 - 400))
+    # Affichage de l'image de la poubelle
+    SCREEN.blit(scoreboard_image, scoreboard_image_rect)  # Remplacez x_position et y_position par les coordonnées où vous souhaitez afficher l'image
 
+    quitter_text = menu_font.render("Quitter", True, (255, 255, 255))
+    quitter_rect = quitter_text.get_rect(center=(SCREEN.get_width() // 2, SCREEN.get_height() //2 + 150))
+    SCREEN.blit(quitter_text, quitter_rect)
     pygame.display.update()
 
     waiting = True
@@ -39,5 +47,9 @@ def main_menu():
                     play_game_sound.play()
                     from game import run_game
                     run_game()
-                elif parameter_rect.collidepoint(event.pos):
-                    parameters_screen(SCREEN)
+                elif scoreboard_image_rect.collidepoint(event.pos):
+                    from scoreboard import score_board
+                    score_board(SCREEN)
+                elif quitter_rect.collidepoint(event.pos):
+                    pygame.quit()
+                    sys.exit()
