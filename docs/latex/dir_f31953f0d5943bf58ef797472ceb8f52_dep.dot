@@ -1,0 +1,16 @@
+digraph "C:/Users/MSI/Desktop"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  compound=true
+  subgraph clusterdir_3665db967b5c8915f22add8a687303cd {
+    graph [ bgcolor="#edf0f7", pencolor="grey50", label="MSI", fontname=Helvetica,fontsize=10 style="filled,dashed", URL="dir_3665db967b5c8915f22add8a687303cd.html",tooltip=""]
+  subgraph clusterdir_f31953f0d5943bf58ef797472ceb8f52 {
+    graph [ bgcolor="#edf0f7", pencolor="grey25", label="", fontname=Helvetica,fontsize=10 style="filled,bold", URL="dir_f31953f0d5943bf58ef797472ceb8f52.html",tooltip=""]
+    dir_f31953f0d5943bf58ef797472ceb8f52 [shape=plaintext, label="Desktop"];
+  dir_20b44fee32c9dccd291531af1cf6552d [label="Cours", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_20b44fee32c9dccd291531af1cf6552d.html",tooltip=""];
+  }
+  }
+}

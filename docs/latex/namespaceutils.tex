@@ -1,0 +1,58 @@
+\doxysection{Référence de l\textquotesingle{}espace de nommage utils}
+\hypertarget{namespaceutils}{}\label{namespaceutils}\index{utils@{utils}}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceutils_a2aa093494cc9fa83d18b8f16e8653a09}{save\+\_\+score}} (score)
+\item 
+\mbox{\hyperlink{namespaceutils_a921d8031b4c3c93b5ac5a2db09c8f9a0}{load\+\_\+scores}} ()
+\item 
+\mbox{\hyperlink{namespaceutils_ab9a46bea24e985feead3eea4620e3a06}{delete\+\_\+score\+\_\+data}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+str \mbox{\hyperlink{namespaceutils_abc90494de2c8a105025546125f70f633}{SCORE\+\_\+\+FILE}} = "{}score\+\_\+data.\+txt"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{namespaceutils_ab9a46bea24e985feead3eea4620e3a06}\label{namespaceutils_ab9a46bea24e985feead3eea4620e3a06} 
+\index{utils@{utils}!delete\_score\_data@{delete\_score\_data}}
+\index{delete\_score\_data@{delete\_score\_data}!utils@{utils}}
+\doxysubsubsection{\texorpdfstring{delete\_score\_data()}{delete\_score\_data()}}
+{\footnotesize\ttfamily utils.\+delete\+\_\+score\+\_\+data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Efface toutes les données du fichier score_data.txt.
+\end{DoxyVerb}
+ \Hypertarget{namespaceutils_a921d8031b4c3c93b5ac5a2db09c8f9a0}\label{namespaceutils_a921d8031b4c3c93b5ac5a2db09c8f9a0} 
+\index{utils@{utils}!load\_scores@{load\_scores}}
+\index{load\_scores@{load\_scores}!utils@{utils}}
+\doxysubsubsection{\texorpdfstring{load\_scores()}{load\_scores()}}
+{\footnotesize\ttfamily utils.\+load\+\_\+scores (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Charge les scores à partir du fichier score_data.txt.
+
+Returns:
+    list: Liste des scores chargés à partir du fichier, triés par ordre décroissant.
+\end{DoxyVerb}
+ \Hypertarget{namespaceutils_a2aa093494cc9fa83d18b8f16e8653a09}\label{namespaceutils_a2aa093494cc9fa83d18b8f16e8653a09} 
+\index{utils@{utils}!save\_score@{save\_score}}
+\index{save\_score@{save\_score}!utils@{utils}}
+\doxysubsubsection{\texorpdfstring{save\_score()}{save\_score()}}
+{\footnotesize\ttfamily utils.\+save\+\_\+score (\begin{DoxyParamCaption}\item[{}]{score }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Sauvegarde le score dans le fichier score_data.txt.
+
+Args:
+    score (int): Le score à sauvegarder.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{namespaceutils_abc90494de2c8a105025546125f70f633}\label{namespaceutils_abc90494de2c8a105025546125f70f633} 
+\index{utils@{utils}!SCORE\_FILE@{SCORE\_FILE}}
+\index{SCORE\_FILE@{SCORE\_FILE}!utils@{utils}}
+\doxysubsubsection{\texorpdfstring{SCORE\_FILE}{SCORE\_FILE}}
+{\footnotesize\ttfamily str utils.\+SCORE\+\_\+\+FILE = "{}score\+\_\+data.\+txt"{}}
+
