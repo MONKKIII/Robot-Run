@@ -1,0 +1,44 @@
+\doxysection{utils.\+py}
+\hypertarget{utils_8py_source}{}\label{utils_8py_source}\index{C:/Users/MSI/Desktop/Cours/Épreuve Finale BTS/Projet/Robot Run/utils.py@{C:/Users/MSI/Desktop/Cours/Épreuve Finale BTS/Projet/Robot Run/utils.py}}
+\mbox{\hyperlink{utils_8py}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00001}\mbox{\hyperlink{namespaceutils}{00001}}\ \textcolor{keyword}{import}\ pickle}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00003}\mbox{\hyperlink{namespaceutils_abc90494de2c8a105025546125f70f633}{00003}}\ SCORE\_FILE\ =\ \textcolor{stringliteral}{"{}score\_data.txt"{}}}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00005}\mbox{\hyperlink{namespaceutils_a2aa093494cc9fa83d18b8f16e8653a09}{00005}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceutils_a2aa093494cc9fa83d18b8f16e8653a09}{save\_score}}(score):}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00006}00006\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00007}00007\ \textcolor{stringliteral}{\ \ \ \ Sauvegarde\ le\ score\ dans\ le\ fichier\ score\_data.txt.}}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00008}00008\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00009}00009\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00010}00010\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ score\ (int):\ Le\ score\ à\ sauvegarder.}}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00011}00011\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00012}00012\ \ \ \ \ \textcolor{keyword}{with}\ open(SCORE\_FILE,\ \textcolor{stringliteral}{"{}a"{}})\ \textcolor{keyword}{as}\ file:}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00013}00013\ \ \ \ \ \ \ \ \ file.write(str(score)\ +\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}})}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00015}\mbox{\hyperlink{namespaceutils_a921d8031b4c3c93b5ac5a2db09c8f9a0}{00015}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceutils_a921d8031b4c3c93b5ac5a2db09c8f9a0}{load\_scores}}():}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00016}00016\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00017}00017\ \textcolor{stringliteral}{\ \ \ \ Charge\ les\ scores\ à\ partir\ du\ fichier\ score\_data.txt.}}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00018}00018\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00019}00019\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00020}00020\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ list:\ Liste\ des\ scores\ chargés\ à\ partir\ du\ fichier,\ triés\ par\ ordre\ décroissant.}}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00021}00021\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00022}00022\ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ open(SCORE\_FILE,\ \textcolor{stringliteral}{"{}r"{}})\ \textcolor{keyword}{as}\ file:}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ scores\ =\ [int(score.strip())\ \textcolor{keywordflow}{for}\ score\ \textcolor{keywordflow}{in}\ file.readlines()]}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ scores.sort(reverse=\textcolor{keyword}{True})\ \ \textcolor{comment}{\#\ Tri\ des\ scores\ dans\ l'ordre\ décroissant}}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ scores}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00027}00027\ \ \ \ \ \textcolor{keywordflow}{except}\ FileNotFoundError:}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ []}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00030}\mbox{\hyperlink{namespaceutils_ab9a46bea24e985feead3eea4620e3a06}{00030}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceutils_ab9a46bea24e985feead3eea4620e3a06}{delete\_score\_data}}():}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00031}00031\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00032}00032\ \textcolor{stringliteral}{\ \ \ \ Efface\ toutes\ les\ données\ du\ fichier\ score\_data.txt.}}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00033}00033\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00034}00034\ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ open(SCORE\_FILE,\ \textcolor{stringliteral}{"{}w"{}})\ \textcolor{keyword}{as}\ file:}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ file.truncate(0)\ \ \textcolor{comment}{\#\ Efface\ le\ contenu\ du\ fichier}}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{except}\ FileNotFoundError:}
+\DoxyCodeLine{\Hypertarget{utils_8py_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{pass}}
+
+\end{DoxyCode}

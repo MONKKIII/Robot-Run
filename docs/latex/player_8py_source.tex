@@ -1,0 +1,80 @@
+\doxysection{player.\+py}
+\hypertarget{player_8py_source}{}\label{player_8py_source}\index{C:/Users/MSI/Desktop/Cours/Épreuve Finale BTS/Projet/Robot Run/player.py@{C:/Users/MSI/Desktop/Cours/Épreuve Finale BTS/Projet/Robot Run/player.py}}
+\mbox{\hyperlink{player_8py}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00001}\mbox{\hyperlink{namespaceplayer}{00001}}\ \textcolor{keyword}{import}\ pygame}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00002}00002\ pygame.init()}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00004}\mbox{\hyperlink{classplayer_1_1_player}{00004}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classplayer_1_1_player}{Player}}:}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00005}\mbox{\hyperlink{classplayer_1_1_player_a25e6432a286f1975e5f2cdbf0d0f8565}{00005}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classplayer_1_1_player_a25e6432a286f1975e5f2cdbf0d0f8565}{\_\_init\_\_}}(self):}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00006}00006\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Position\ initiale\ du\ joueur}}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00007}\mbox{\hyperlink{classplayer_1_1_player_abdc44c3ef70a03d52c1456f5d2f9f5e8}{00007}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classplayer_1_1_player_abdc44c3ef70a03d52c1456f5d2f9f5e8}{x\_position}}\ =\ 250}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00008}\mbox{\hyperlink{classplayer_1_1_player_a5a3897575e357fb580e75a9cff815cad}{00008}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classplayer_1_1_player_a5a3897575e357fb580e75a9cff815cad}{y\_position}}\ =\ 842}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00010}00010\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ État\ du\ saut}}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00011}\mbox{\hyperlink{classplayer_1_1_player_a34047bfafb19f9c4aa1175c205aa88f6}{00011}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classplayer_1_1_player_a34047bfafb19f9c4aa1175c205aa88f6}{jumping}}\ =\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00013}00013\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Variables\ de\ saut}}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00014}\mbox{\hyperlink{classplayer_1_1_player_acb9d64201c51f69e5dbbf6c03e851326}{00014}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classplayer_1_1_player_acb9d64201c51f69e5dbbf6c03e851326}{y\_gravity}}\ =\ 1}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00015}\mbox{\hyperlink{classplayer_1_1_player_a4f57a6f579828b12e065f35256abe892}{00015}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classplayer_1_1_player_a4f57a6f579828b12e065f35256abe892}{jump\_height}}\ =\ 20}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00016}\mbox{\hyperlink{classplayer_1_1_player_a6c89618ad2c9e4b4e1be9a4609c9af43}{00016}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classplayer_1_1_player_a6c89618ad2c9e4b4e1be9a4609c9af43}{y\_velocity}}\ =\ self.\mbox{\hyperlink{classplayer_1_1_player_a4f57a6f579828b12e065f35256abe892}{jump\_height}}}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00018}00018\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Chargement\ des\ images\ du\ joueur}}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00019}\mbox{\hyperlink{classplayer_1_1_player_a8adae23be7a72f7a69f7318dd4c3257c}{00019}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classplayer_1_1_player_a8adae23be7a72f7a69f7318dd4c3257c}{standing\_surface}}\ =\ pygame.transform.scale(pygame.image.load(\textcolor{stringliteral}{"{}images/player/standing.png"{}}),\ (72,\ 96))}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00020}\mbox{\hyperlink{classplayer_1_1_player_aa5c71a33b3be20146b2169c14c2a413c}{00020}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classplayer_1_1_player_aa5c71a33b3be20146b2169c14c2a413c}{jumping\_surface}}\ =\ pygame.transform.scale(pygame.image.load(\textcolor{stringliteral}{"{}images/player/jumping.png"{}}),\ (72,\ 96))}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Rectangle\ de\ collision\ du\ joueur}}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00023}\mbox{\hyperlink{classplayer_1_1_player_a6870facb96e50fe33af1071506c67c69}{00023}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classplayer_1_1_player_a6870facb96e50fe33af1071506c67c69}{rect}}\ =\ self.\mbox{\hyperlink{classplayer_1_1_player_a8adae23be7a72f7a69f7318dd4c3257c}{standing\_surface}}.get\_rect(center=(self.\mbox{\hyperlink{classplayer_1_1_player_abdc44c3ef70a03d52c1456f5d2f9f5e8}{x\_position}},\ self.\mbox{\hyperlink{classplayer_1_1_player_a5a3897575e357fb580e75a9cff815cad}{y\_position}}))}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Son\ de\ saut}}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00026}\mbox{\hyperlink{classplayer_1_1_player_a0f287873f4ad235940bc86ef4f1fe854}{00026}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classplayer_1_1_player_a0f287873f4ad235940bc86ef4f1fe854}{jump\_sound}}\ =\ pygame.mixer.Sound(\textcolor{stringliteral}{"{}sfx/sound/jump.wav"{}})}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00027}00027\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classplayer_1_1_player_a0f287873f4ad235940bc86ef4f1fe854}{jump\_sound}}.set\_volume(0.1)}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Variable\ pour\ suivre\ l'état\ du\ son\ de\ saut}}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00030}\mbox{\hyperlink{classplayer_1_1_player_ad6d507c300b400712cec280a76146533}{00030}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classplayer_1_1_player_ad6d507c300b400712cec280a76146533}{sound\_playing}}\ =\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00032}\mbox{\hyperlink{classplayer_1_1_player_ae14fbc36709293cbb23fc28e1964030c}{00032}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classplayer_1_1_player_ae14fbc36709293cbb23fc28e1964030c}{move\_left}}(self):}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Déplacement\ vers\ la\ gauche}}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00034}00034\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classplayer_1_1_player_abdc44c3ef70a03d52c1456f5d2f9f5e8}{x\_position}}\ -\/=\ 5\ \ \textcolor{comment}{\#\ Ajuster\ la\ valeur\ pour\ la\ vitesse}}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00035}00035\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classplayer_1_1_player_abdc44c3ef70a03d52c1456f5d2f9f5e8}{x\_position}}\ =\ max(0,\ self.\mbox{\hyperlink{classplayer_1_1_player_abdc44c3ef70a03d52c1456f5d2f9f5e8}{x\_position}})}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00037}\mbox{\hyperlink{classplayer_1_1_player_aeaaceb2734987aba5add9f9dc86b60b9}{00037}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classplayer_1_1_player_aeaaceb2734987aba5add9f9dc86b60b9}{move\_right}}(self):}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Déplacement\ vers\ la\ droite}}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00039}00039\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classplayer_1_1_player_abdc44c3ef70a03d52c1456f5d2f9f5e8}{x\_position}}\ +=\ 5\ \ \textcolor{comment}{\#\ Ajuster\ la\ valeur\ pour\ la\ vitesse}}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00040}00040\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classplayer_1_1_player_abdc44c3ef70a03d52c1456f5d2f9f5e8}{x\_position}}\ =\ min(self.\mbox{\hyperlink{classplayer_1_1_player_abdc44c3ef70a03d52c1456f5d2f9f5e8}{x\_position}},\ 900\ -\/\ self.\mbox{\hyperlink{classplayer_1_1_player_a8adae23be7a72f7a69f7318dd4c3257c}{standing\_surface}}.get\_width())}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00042}\mbox{\hyperlink{classplayer_1_1_player_aaf99103ec198a3a825771ccf49d34148}{00042}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classplayer_1_1_player_aaf99103ec198a3a825771ccf49d34148}{jump}}(self):}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Fonction\ pour\ effectuer\ un\ saut}}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ self.\mbox{\hyperlink{classplayer_1_1_player_ad6d507c300b400712cec280a76146533}{sound\_playing}}:\ \ \textcolor{comment}{\#\ Vérifier\ si\ le\ son\ est\ déjà\ en\ train\ d'être\ joué}}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classplayer_1_1_player_a34047bfafb19f9c4aa1175c205aa88f6}{jumping}}\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classplayer_1_1_player_a0f287873f4ad235940bc86ef4f1fe854}{jump\_sound}}.play()}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classplayer_1_1_player_ad6d507c300b400712cec280a76146533}{sound\_playing}}\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00049}\mbox{\hyperlink{classplayer_1_1_player_ae385e3d8c7dc505870f6250ccf6eb1f3}{00049}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classplayer_1_1_player_ae385e3d8c7dc505870f6250ccf6eb1f3}{update}}(self):}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Mettre\ à\ jour\ la\ position\ du\ joueur\ en\ fonction\ de\ l'état\ du\ saut}}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ self.\mbox{\hyperlink{classplayer_1_1_player_a34047bfafb19f9c4aa1175c205aa88f6}{jumping}}:}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classplayer_1_1_player_a5a3897575e357fb580e75a9cff815cad}{y\_position}}\ -\/=\ self.\mbox{\hyperlink{classplayer_1_1_player_a6c89618ad2c9e4b4e1be9a4609c9af43}{y\_velocity}}}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classplayer_1_1_player_a6c89618ad2c9e4b4e1be9a4609c9af43}{y\_velocity}}\ -\/=\ self.\mbox{\hyperlink{classplayer_1_1_player_acb9d64201c51f69e5dbbf6c03e851326}{y\_gravity}}}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ self.\mbox{\hyperlink{classplayer_1_1_player_a6c89618ad2c9e4b4e1be9a4609c9af43}{y\_velocity}}\ <\ -\/self.\mbox{\hyperlink{classplayer_1_1_player_a4f57a6f579828b12e065f35256abe892}{jump\_height}}:}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classplayer_1_1_player_a34047bfafb19f9c4aa1175c205aa88f6}{jumping}}\ =\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classplayer_1_1_player_a6c89618ad2c9e4b4e1be9a4609c9af43}{y\_velocity}}\ =\ self.\mbox{\hyperlink{classplayer_1_1_player_a4f57a6f579828b12e065f35256abe892}{jump\_height}}}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classplayer_1_1_player_a6870facb96e50fe33af1071506c67c69}{rect}}\ =\ self.\mbox{\hyperlink{classplayer_1_1_player_aa5c71a33b3be20146b2169c14c2a413c}{jumping\_surface}}.get\_rect(center=(self.\mbox{\hyperlink{classplayer_1_1_player_abdc44c3ef70a03d52c1456f5d2f9f5e8}{x\_position}},\ self.\mbox{\hyperlink{classplayer_1_1_player_a5a3897575e357fb580e75a9cff815cad}{y\_position}}))}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classplayer_1_1_player_a6870facb96e50fe33af1071506c67c69}{rect}}\ =\ self.\mbox{\hyperlink{classplayer_1_1_player_a8adae23be7a72f7a69f7318dd4c3257c}{standing\_surface}}.get\_rect(center=(self.\mbox{\hyperlink{classplayer_1_1_player_abdc44c3ef70a03d52c1456f5d2f9f5e8}{x\_position}},\ self.\mbox{\hyperlink{classplayer_1_1_player_a5a3897575e357fb580e75a9cff815cad}{y\_position}}))}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00060}00060\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Mettre\ à\ jour\ l'état\ du\ son\ de\ saut}}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ self.\mbox{\hyperlink{classplayer_1_1_player_a34047bfafb19f9c4aa1175c205aa88f6}{jumping}}\ \textcolor{keywordflow}{and}\ self.\mbox{\hyperlink{classplayer_1_1_player_ad6d507c300b400712cec280a76146533}{sound\_playing}}:}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classplayer_1_1_player_ad6d507c300b400712cec280a76146533}{sound\_playing}}\ =\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00065}\mbox{\hyperlink{classplayer_1_1_player_aca21d9f25ad353039f7c2f1f1e901a55}{00065}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classplayer_1_1_player_aca21d9f25ad353039f7c2f1f1e901a55}{draw}}(self,\ SCREEN):}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Dessiner\ le\ joueur\ sur\ l'écran}}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ self.\mbox{\hyperlink{classplayer_1_1_player_a34047bfafb19f9c4aa1175c205aa88f6}{jumping}}:}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ SCREEN.blit(self.\mbox{\hyperlink{classplayer_1_1_player_aa5c71a33b3be20146b2169c14c2a413c}{jumping\_surface}},\ self.\mbox{\hyperlink{classplayer_1_1_player_a6870facb96e50fe33af1071506c67c69}{rect}})}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ SCREEN.blit(self.\mbox{\hyperlink{classplayer_1_1_player_a8adae23be7a72f7a69f7318dd4c3257c}{standing\_surface}},\ self.\mbox{\hyperlink{classplayer_1_1_player_a6870facb96e50fe33af1071506c67c69}{rect}})}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00072}\mbox{\hyperlink{classplayer_1_1_player_a39bbc95b357d4ed7df47bd768e616ea6}{00072}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classplayer_1_1_player_a39bbc95b357d4ed7df47bd768e616ea6}{reset}}(self):}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Réinitialiser\ la\ position\ du\ joueur}}
+\DoxyCodeLine{\Hypertarget{player_8py_source_l00074}00074\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classplayer_1_1_player_a6870facb96e50fe33af1071506c67c69}{rect}}.center\ =\ (250,\ 842)\ \ \textcolor{comment}{\#\ Position\ initiale}}
+
+\end{DoxyCode}

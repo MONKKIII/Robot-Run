@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Robot Run:  Fichier source de C:/Users/MSI/Desktop/Cours/Épreuve Finale BTS/Projet/Robot Run/enemy.py</title>
+<link rel="icon" href="Log_Robot_Run.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Robot Run
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d522931ffa1371640980b621734a4381.html">Users</a></li><li class="navelem"><a class="el" href="dir_3665db967b5c8915f22add8a687303cd.html">MSI</a></li><li class="navelem"><a class="el" href="dir_f31953f0d5943bf58ef797472ceb8f52.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_20b44fee32c9dccd291531af1cf6552d.html">Cours</a></li><li class="navelem"><a class="el" href="dir_76c0b094b3c1abf5e38a6c30ff41c482.html">Épreuve Finale BTS</a></li><li class="navelem"><a class="el" href="dir_5751f3bda54050c8a1dad7be7411d39b.html">Projet</a></li><li class="navelem"><a class="el" href="dir_c2cff8d270cb4f2078c548c2ab073780.html">Robot Run</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">enemy.py</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="enemy_8py.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespaceenemy.html">    1</a></span><span class="keyword">import</span> pygame</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">import</span> random</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span>pygame.init()</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="foldopen" id="foldopen00005" data-start="" data-end="">
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="classenemy_1_1_enemy.html">    5</a></span><span class="keyword">class </span><a class="code hl_class" href="classenemy_1_1_enemy.html">Enemy</a>:</div>
+<div class="foldopen" id="foldopen00006" data-start="" data-end="">
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="classenemy_1_1_enemy.html#acf1214c1a3f0afe60c48048a713a4c54">    6</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classenemy_1_1_enemy.html#acf1214c1a3f0afe60c48048a713a4c54">__init__</a>(self, min_height, max_height):</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="stringliteral">        Initialise un ennemi avec une position aléatoire en hauteur.</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="stringliteral">        Args:</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="stringliteral">            min_height (int): La hauteur minimale à laquelle l&#39;ennemi peut apparaître.</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="stringliteral">            max_height (int): La hauteur maximale à laquelle l&#39;ennemi peut apparaître.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <span class="comment"># Chargement de l&#39;image de l&#39;ennemi et création de son rectangle de collision</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classenemy_1_1_enemy.html#a36a8cf75989e1dc4c1bc67e5613f4a5f">   15</a></span>        self.<a class="code hl_variable" href="classenemy_1_1_enemy.html#a36a8cf75989e1dc4c1bc67e5613f4a5f">surface</a> = pygame.transform.scale(pygame.image.load(<span class="stringliteral">&quot;images/enemy/saw.png&quot;</span>), (45, 45))</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classenemy_1_1_enemy.html#a730f59f24a1d9ac52fae31a8c667ef71">   16</a></span>        self.<a class="code hl_variable" href="classenemy_1_1_enemy.html#a730f59f24a1d9ac52fae31a8c667ef71">rect</a> = self.<a class="code hl_variable" href="classenemy_1_1_enemy.html#a36a8cf75989e1dc4c1bc67e5613f4a5f">surface</a>.get_rect(midleft=(random.randint(950, 1000), random.randint(min_height, max_height)))</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+</div>
+<div class="foldopen" id="foldopen00018" data-start="" data-end="">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classenemy_1_1_enemy.html#a13e9d27fc7b2ce15e18fe8b343142af7">   18</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classenemy_1_1_enemy.html#a13e9d27fc7b2ce15e18fe8b343142af7">update</a>(self):</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="stringliteral">        Met à jour la position de l&#39;ennemi en le déplaçant vers la gauche.</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        self.<a class="code hl_variable" href="classenemy_1_1_enemy.html#a730f59f24a1d9ac52fae31a8c667ef71">rect</a>.move_ip(-5, 0)</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+</div>
+<div class="foldopen" id="foldopen00024" data-start="" data-end="">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classenemy_1_1_enemy.html#ac60abf005fcc41d107e3a437e86f02a3">   24</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classenemy_1_1_enemy.html#ac60abf005fcc41d107e3a437e86f02a3">draw</a>(self, SCREEN):</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="stringliteral">        Dessine l&#39;ennemi sur l&#39;écran.</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="stringliteral">        Args:</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="stringliteral">            SCREEN (Surface): La surface sur laquelle dessiner l&#39;ennemi.</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        SCREEN.blit(self.<a class="code hl_variable" href="classenemy_1_1_enemy.html#a36a8cf75989e1dc4c1bc67e5613f4a5f">surface</a>, self.<a class="code hl_variable" href="classenemy_1_1_enemy.html#a730f59f24a1d9ac52fae31a8c667ef71">rect</a>)</div>
+</div>
+</div>
+<div class="ttc" id="aclassenemy_1_1_enemy_html"><div class="ttname"><a href="classenemy_1_1_enemy.html">enemy.Enemy</a></div><div class="ttdef"><b>Definition</b> <a href="#l00005">enemy.py:5</a></div></div>
+<div class="ttc" id="aclassenemy_1_1_enemy_html_a13e9d27fc7b2ce15e18fe8b343142af7"><div class="ttname"><a href="classenemy_1_1_enemy.html#a13e9d27fc7b2ce15e18fe8b343142af7">enemy.Enemy.update</a></div><div class="ttdeci">update(self)</div><div class="ttdef"><b>Definition</b> <a href="#l00018">enemy.py:18</a></div></div>
+<div class="ttc" id="aclassenemy_1_1_enemy_html_a36a8cf75989e1dc4c1bc67e5613f4a5f"><div class="ttname"><a href="classenemy_1_1_enemy.html#a36a8cf75989e1dc4c1bc67e5613f4a5f">enemy.Enemy.surface</a></div><div class="ttdeci">surface</div><div class="ttdef"><b>Definition</b> <a href="#l00015">enemy.py:15</a></div></div>
+<div class="ttc" id="aclassenemy_1_1_enemy_html_a730f59f24a1d9ac52fae31a8c667ef71"><div class="ttname"><a href="classenemy_1_1_enemy.html#a730f59f24a1d9ac52fae31a8c667ef71">enemy.Enemy.rect</a></div><div class="ttdeci">rect</div><div class="ttdef"><b>Definition</b> <a href="#l00016">enemy.py:16</a></div></div>
+<div class="ttc" id="aclassenemy_1_1_enemy_html_ac60abf005fcc41d107e3a437e86f02a3"><div class="ttname"><a href="classenemy_1_1_enemy.html#ac60abf005fcc41d107e3a437e86f02a3">enemy.Enemy.draw</a></div><div class="ttdeci">draw(self, SCREEN)</div><div class="ttdef"><b>Definition</b> <a href="#l00024">enemy.py:24</a></div></div>
+<div class="ttc" id="aclassenemy_1_1_enemy_html_acf1214c1a3f0afe60c48048a713a4c54"><div class="ttname"><a href="classenemy_1_1_enemy.html#acf1214c1a3f0afe60c48048a713a4c54">enemy.Enemy.__init__</a></div><div class="ttdeci">__init__(self, min_height, max_height)</div><div class="ttdef"><b>Definition</b> <a href="#l00006">enemy.py:6</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

@@ -1,0 +1,79 @@
+\doxysection{menu.\+py}
+\hypertarget{menu_8py_source}{}\label{menu_8py_source}\index{C:/Users/MSI/Desktop/Cours/Épreuve Finale BTS/Projet/Robot Run/menu.py@{C:/Users/MSI/Desktop/Cours/Épreuve Finale BTS/Projet/Robot Run/menu.py}}
+\mbox{\hyperlink{menu_8py}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00001}\mbox{\hyperlink{namespacemenu}{00001}}\ \textcolor{keyword}{import}\ pygame}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00002}00002\ \textcolor{keyword}{import}\ sys}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00003}00003\ \textcolor{keyword}{from}\ utils\ \textcolor{keyword}{import}\ load\_scores}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00005}\mbox{\hyperlink{namespacemenu_a8c9d6fa4a351fa5fbb93c5f3f7c062c0}{00005}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacemenu_a8c9d6fa4a351fa5fbb93c5f3f7c062c0}{main\_menu}}():}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00006}00006\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00007}00007\ \textcolor{stringliteral}{\ \ \ \ Affiche\ le\ menu\ principal\ du\ jeu.}}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00008}00008\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00009}00009\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00010}00010\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ bool:\ True\ si\ le\ joueur\ choisit\ de\ quitter\ le\ jeu,\ False\ sinon.}}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00011}00011\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00012}00012\ \ \ \ \ pygame.init()}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00014}00014\ \ \ \ \ \textcolor{comment}{\#\ Initialisation\ de\ Pygame}}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00015}00015\ \ \ \ \ CLOCK\ =\ pygame.time.Clock()}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00016}00016\ \ \ \ \ SCREEN\ =\ pygame.display.set\_mode((900,\ 950))}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00017}00017\ \ \ \ \ pygame.display.set\_caption(\textcolor{stringliteral}{"{}Robot\ Run"{}})}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00019}00019\ \ \ \ \ \textcolor{comment}{\#\ Chargement\ des\ scores}}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00020}00020\ \ \ \ \ scores\ =\ load\_scores()}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00022}00022\ \ \ \ \ \textcolor{comment}{\#\ Chargement\ des\ sons}}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00023}00023\ \ \ \ \ play\_game\_sound\ =\ pygame.mixer.Sound(\textcolor{stringliteral}{"{}sfx/sound/play.wav"{}})}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00025}00025\ \ \ \ \ \textcolor{comment}{\#\ Création\ de\ la\ police\ de\ texte\ pour\ le\ menu}}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00026}00026\ \ \ \ \ menu\_font\ =\ pygame.font.SysFont(\textcolor{keywordtype}{None},\ 48)}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00028}00028\ \ \ \ \ \textcolor{comment}{\#\ Texte\ du\ titre}}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00029}00029\ \ \ \ \ title\_text\ =\ menu\_font.render(\textcolor{stringliteral}{"{}Robot\ Run"{}},\ \textcolor{keyword}{True},\ (255,\ 255,\ 255))}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00030}00030\ \ \ \ \ title\_rect\ =\ title\_text.get\_rect(center=(SCREEN.get\_width()\ //\ 2,\ SCREEN.get\_height()\ //\ 2\ -\/\ 50))}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00031}00031\ \ \ \ \ SCREEN.blit(title\_text,\ title\_rect)}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00033}00033\ \ \ \ \ \textcolor{comment}{\#\ Texte\ pour\ jouer}}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00034}00034\ \ \ \ \ play\_text\ =\ menu\_font.render(\textcolor{stringliteral}{"{}Jouer"{}},\ \textcolor{keyword}{True},\ (255,\ 255,\ 255))}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00035}00035\ \ \ \ \ play\_rect\ =\ play\_text.get\_rect(center=(SCREEN.get\_width()\ //\ 2,\ SCREEN.get\_height()\ //\ 2\ +\ 50))}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00036}00036\ \ \ \ \ SCREEN.blit(play\_text,\ play\_rect)}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00038}00038\ \ \ \ \ \textcolor{comment}{\#\ Chargement\ de\ l'image\ de\ la\ poubelle}}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00039}00039\ \ \ \ \ scoreboard\_image\ =\ pygame.transform.scale(pygame.image.load(\textcolor{stringliteral}{"{}images/score\_board.png"{}}),\ (102,\ 116))}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00040}00040\ \ \ \ \ scoreboard\_image\_rect\ =\ scoreboard\_image.get\_rect(center=(SCREEN.get\_width()\ //\ 2\ +\ 380,\ SCREEN.get\_height()\ //\ 2\ -\/\ 400))}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00041}00041\ \ \ \ \ \textcolor{comment}{\#\ Affichage\ de\ l'image\ de\ la\ poubelle}}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00042}00042\ \ \ \ \ SCREEN.blit(scoreboard\_image,\ scoreboard\_image\_rect)}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00044}00044\ \ \ \ \ \textcolor{comment}{\#\ Texte\ pour\ quitter}}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00045}00045\ \ \ \ \ quitter\_text\ =\ menu\_font.render(\textcolor{stringliteral}{"{}Quitter"{}},\ \textcolor{keyword}{True},\ (255,\ 255,\ 255))}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00046}00046\ \ \ \ \ quitter\_rect\ =\ quitter\_text.get\_rect(center=(SCREEN.get\_width()\ //\ 2,\ SCREEN.get\_height()\ //\ 2\ +\ 150))}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00047}00047\ \ \ \ \ SCREEN.blit(quitter\_text,\ quitter\_rect)}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00048}00048\ \ \ \ \ pygame.display.update()}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00050}00050\ \ \ \ \ \textcolor{comment}{\#\ Attente\ des\ actions\ de\ l'utilisateur}}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00051}00051\ \ \ \ \ waiting\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00052}00052\ \ \ \ \ \textcolor{keywordflow}{while}\ waiting:}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ event\ \textcolor{keywordflow}{in}\ pygame.event.get():}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ event.type\ ==\ pygame.QUIT:}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Si\ l'utilisateur\ ferme\ la\ fenêtre,\ quitte\ le\ jeu}}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pygame.quit()}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sys.exit()}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ event.type\ ==\ pygame.MOUSEBUTTONDOWN:}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Si\ l'utilisateur\ clique\ sur\ l'un\ des\ boutons\ du\ menu}}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ play\_rect.collidepoint(event.pos):}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ L'utilisateur\ a\ choisi\ de\ jouer,\ lance\ le\ jeu}}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ waiting\ =\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ play\_game\_sound.play()}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{from}\ game\ \textcolor{keyword}{import}\ run\_game}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ run\_game()}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ scoreboard\_image\_rect.collidepoint(event.pos):}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ L'utilisateur\ a\ cliqué\ sur\ l'image\ du\ tableau\ des\ scores,\ affiche\ le\ tableau\ des\ scores}}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{from}\ scoreboard\ \textcolor{keyword}{import}\ score\_board}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ score\_board(SCREEN)}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ quitter\_rect.collidepoint(event.pos):}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ L'utilisateur\ a\ choisi\ de\ quitter\ le\ jeu}}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pygame.quit()}
+\DoxyCodeLine{\Hypertarget{menu_8py_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sys.exit()}
+
+\end{DoxyCode}

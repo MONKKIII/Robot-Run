@@ -1,0 +1,114 @@
+\doxysection{game.\+py}
+\hypertarget{game_8py_source}{}\label{game_8py_source}\index{C:/Users/MSI/Desktop/Cours/Épreuve Finale BTS/Projet/Robot Run/game.py@{C:/Users/MSI/Desktop/Cours/Épreuve Finale BTS/Projet/Robot Run/game.py}}
+\mbox{\hyperlink{game_8py}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00001}\mbox{\hyperlink{namespacegame}{00001}}\ \textcolor{keyword}{import}\ pygame}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00002}00002\ \textcolor{keyword}{import}\ sys}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00003}00003\ \textcolor{keyword}{import}\ random}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00004}00004\ \textcolor{keyword}{import}\ pickle}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00005}00005\ \textcolor{keyword}{from}\ player\ \textcolor{keyword}{import}\ Player\ \ \textcolor{comment}{\#\ Importer\ la\ classe\ Player\ depuis\ le\ module\ player}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00006}00006\ \textcolor{keyword}{from}\ enemy\ \textcolor{keyword}{import}\ Enemy\ \ \textcolor{comment}{\#\ Importer\ la\ classe\ Enemy\ depuis\ le\ module\ enemy}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00007}00007\ \textcolor{keyword}{from}\ menu\ \textcolor{keyword}{import}\ main\_menu\ \ \textcolor{comment}{\#\ Importer\ la\ fonction\ main\_menu\ depuis\ le\ module\ menu}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00008}00008\ \textcolor{keyword}{from}\ game\_over\ \textcolor{keyword}{import}\ game\_over\_SCREEN\ \ \textcolor{comment}{\#\ Importer\ la\ fonction\ game\_over\_SCREEN\ depuis\ le\ module\ game\_over}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00009}00009\ \textcolor{keyword}{from}\ scoreboard\ \textcolor{keyword}{import}\ score\_board\ \ \textcolor{comment}{\#\ Importer\ la\ fonction\ score\_board\ depuis\ le\ module\ scoreboard}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00011}00011\ pygame.init()}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00013}\mbox{\hyperlink{namespacegame_a23f3279da6949226e7d5083337a21768}{00013}}\ CLOCK\ =\ pygame.time.Clock()}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00014}\mbox{\hyperlink{namespacegame_a35edeef553a6d3285f6af37808eadc57}{00014}}\ FPS\ =\ 60}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00016}\mbox{\hyperlink{namespacegame_a2abf34640128c03f58659b92ab2a18ef}{00016}}\ SCREEN\ =\ pygame.display.set\_mode((900,\ 950))\ \ \textcolor{comment}{\#\ Définir\ la\ taille\ de\ l'écran\ du\ jeu}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00017}00017\ pygame.display.set\_caption(\textcolor{stringliteral}{"{}Robot\ Run"{}})\ \ \textcolor{comment}{\#\ Définir\ le\ titre\ de\ la\ fenêtre\ du\ jeu}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00019}\mbox{\hyperlink{namespacegame_a1a9ac5e326541d3dc12eb40dc7f0b0bf}{00019}}\ game\_over\_sound\ =\ pygame.mixer.Sound(\textcolor{stringliteral}{"{}sfx/sound/game\_over.wav"{}})\ \ \textcolor{comment}{\#\ Charger\ le\ son\ de\ game\ over}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00021}00021\ \textcolor{comment}{\#\ Charger\ la\ musique\ de\ fond}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00022}00022\ pygame.mixer.music.load(\textcolor{stringliteral}{"{}sfx/music/game\_music.wav"{}})}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00023}00023\ pygame.mixer.music.play(-\/1)\ \ \textcolor{comment}{\#\ Jouer\ la\ musique\ en\ boucle}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00024}00024\ pygame.mixer.music.set\_volume(0.2)}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00026}\mbox{\hyperlink{namespacegame_ab5081a8b6a2791c5fb28f985197f3a8b}{00026}}\ BACKGROUND\ =\ pygame.image.load(\textcolor{stringliteral}{"{}images/background.jpeg"{}})\ \ \textcolor{comment}{\#\ Charger\ l'image\ de\ fond\ du\ jeu}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00028}\mbox{\hyperlink{namespacegame_ad8774bb14c15479e3c2d8756a563493a}{00028}}\ player\ =\ \mbox{\hyperlink{classplayer_1_1_player}{Player}}()\ \ \textcolor{comment}{\#\ Créer\ une\ instance\ de\ la\ classe\ Player}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00029}\mbox{\hyperlink{namespacegame_a5aa1df86aa3fe525417d6304c2b4afd4}{00029}}\ enemies\ =\ []\ \ \textcolor{comment}{\#\ Liste\ pour\ stocker\ les\ ennemis\ qui\ apparaissent\ dans\ le\ jeu}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00031}\mbox{\hyperlink{namespacegame_af99089b33d6fd1efbd6ad622e4f2d184}{00031}}\ score\ =\ 0\ \ \textcolor{comment}{\#\ Initialiser\ le\ score\ du\ joueur}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00032}\mbox{\hyperlink{namespacegame_a13b4ce5612c9ac20dfcb9d69a29c0f23}{00032}}\ time\_elapsed\ =\ 0\ \ \textcolor{comment}{\#\ Initialiser\ le\ temps\ écoulé}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00034}\mbox{\hyperlink{namespacegame_a0e4dec100a5cacf2c2ecf66a222efd66}{00034}}\ SCORE\_FILE\ =\ \textcolor{stringliteral}{"{}score.dat"{}}\ \ \textcolor{comment}{\#\ Nom\ du\ fichier\ pour\ enregistrer\ le\ score}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00036}\mbox{\hyperlink{namespacegame_ae2c87a7449f3fe26a690c10fbebccb44}{00036}}\ font\ =\ pygame.font.SysFont(\textcolor{keywordtype}{None},\ 36)\ \ \textcolor{comment}{\#\ Charger\ la\ police\ pour\ afficher\ le\ score}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00038}\mbox{\hyperlink{namespacegame_ab89bf51a85e766d8dec47279a64af58a}{00038}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacegame_ab89bf51a85e766d8dec47279a64af58a}{reset\_game}}():}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00039}00039\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00040}00040\ \textcolor{stringliteral}{\ \ \ \ Réinitialise\ les\ variables\ du\ jeu\ pour\ recommencer\ une\ nouvelle\ partie.}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00041}00041\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00042}00042\ \ \ \ \ \textcolor{keyword}{global}\ score,\ time\_elapsed,\ enemies}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00043}00043\ \ \ \ \ score\ =\ 0}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00044}00044\ \ \ \ \ time\_elapsed\ =\ 0}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00045}00045\ \ \ \ \ enemies\ =\ []}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00046}00046\ \ \ \ \ player.reset()\ \ \textcolor{comment}{\#\ Appeler\ la\ méthode\ reset\ de\ l'objet\ player\ pour\ le\ remettre\ à\ sa\ position\ initiale}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00048}\mbox{\hyperlink{namespacegame_a7be5672e2b23b8af46804d0208d514e6}{00048}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacegame_a7be5672e2b23b8af46804d0208d514e6}{run\_game}}():}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00049}00049\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00050}00050\ \textcolor{stringliteral}{\ \ \ \ Fonction\ principale\ pour\ exécuter\ le\ jeu.}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00051}00051\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00052}00052\ \ \ \ \ \textcolor{keyword}{global}\ score,\ time\_elapsed,\ player,\ enemies}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00054}00054\ \ \ \ \ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ event\ \textcolor{keywordflow}{in}\ pygame.event.get():}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ event.type\ ==\ pygame.QUIT:}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pygame.quit()}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sys.exit()}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00060}00060\ \ \ \ \ \ \ \ \ keys\_pressed\ =\ pygame.key.get\_pressed()}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00062}00062\ \ \ \ \ \ \ \ \ SCREEN.blit(BACKGROUND,\ (0,\ 0))\ \ \textcolor{comment}{\#\ Afficher\ l'image\ de\ fond\ à\ la\ position\ (0,\ 0)\ de\ l'écran}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ keys\_pressed[pygame.K\_SPACE]:}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ player.jump()}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ keys\_pressed[pygame.K\_LEFT]:}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ player.move\_left()}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ keys\_pressed[pygame.K\_RIGHT]:}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ player.move\_right()}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00073}00073\ \ \ \ \ \ \ \ \ player.update()\ \ \textcolor{comment}{\#\ Mettre\ à\ jour\ la\ position\ du\ joueur}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00074}00074\ \ \ \ \ \ \ \ \ player.draw(SCREEN)\ \ \textcolor{comment}{\#\ Dessiner\ le\ joueur\ sur\ l'écran}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ random.randint(0,\ 100)\ <\ 1:}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ enemies.append(\mbox{\hyperlink{classenemy_1_1_enemy}{Enemy}}(780,\ 842))\ \ \textcolor{comment}{\#\ Ajouter\ un\ nouvel\ ennemi\ à\ la\ liste}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ enemy\ \textcolor{keywordflow}{in}\ enemies:}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ enemy.update()\ \ \textcolor{comment}{\#\ Mettre\ à\ jour\ la\ position\ de\ chaque\ ennemi}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ enemy.draw(SCREEN)\ \ \textcolor{comment}{\#\ Dessiner\ chaque\ ennemi\ sur\ l'écran}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00083}00083\ \ \ \ \ \ \ \ \ enemies\ =\ [enemy\ \textcolor{keywordflow}{for}\ enemy\ \textcolor{keywordflow}{in}\ enemies\ \textcolor{keywordflow}{if}\ enemy.rect.right\ >\ 0]\ \ \textcolor{comment}{\#\ Supprimer\ les\ ennemis\ qui\ sortent\ de\ l'écran}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00085}00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ player.rect.collidelist([enemy.rect\ \textcolor{keywordflow}{for}\ enemy\ \textcolor{keywordflow}{in}\ enemies])\ !=\ -\/1:}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ game\_over\_sound.play()\ \ \textcolor{comment}{\#\ Jouer\ le\ son\ de\ game\ over}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ game\_over\_action\ =\ game\_over\_SCREEN(SCREEN,\ score)\ \ \textcolor{comment}{\#\ Afficher\ l'écran\ de\ game\ over\ et\ récupérer\ l'action\ du\ joueur}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ game\_over\_action\ ==\ \textcolor{stringliteral}{"{}game"{}}:}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacegame_ab89bf51a85e766d8dec47279a64af58a}{reset\_game}}()\ \ \textcolor{comment}{\#\ Réinitialiser\ le\ jeu\ si\ le\ joueur\ choisit\ de\ rejouer}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ game\_over\_action\ ==\ \textcolor{stringliteral}{"{}menu"{}}:}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacegame_ab89bf51a85e766d8dec47279a64af58a}{reset\_game}}()\ \ \textcolor{comment}{\#\ Réinitialiser\ le\ jeu\ si\ le\ joueur\ choisit\ de\ retourner\ au\ menu\ principal}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ main\_menu()\ \ \textcolor{comment}{\#\ Afficher\ le\ menu\ principal}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue}\ \ \textcolor{comment}{\#\ Passer\ à\ l'itération\ suivante\ de\ la\ boucle\ pour\ éviter\ d'afficher\ le\ score\ après\ game\ over}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00095}00095\ \ \ \ \ \ \ \ \ time\_elapsed\ +=\ CLOCK.get\_rawtime()\ /\ 100\ \ \textcolor{comment}{\#\ Mettre\ à\ jour\ le\ temps\ écoulé}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00097}00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ time\_elapsed\ >=\ 1:}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ score\ +=\ 10\ \ \textcolor{comment}{\#\ Augmenter\ le\ score\ toutes\ les\ secondes}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ time\_elapsed\ =\ 0}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00101}00101\ \ \ \ \ \ \ \ \ score\_text\ =\ font.render(\textcolor{stringliteral}{"{}Score:\ "{}}\ +\ str(score),\ \textcolor{keyword}{True},\ (255,\ 255,\ 255))\ \ \textcolor{comment}{\#\ Créer\ un\ texte\ pour\ afficher\ le\ score}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00102}00102\ \ \ \ \ \ \ \ \ SCREEN.blit(score\_text,\ (10,\ 10))\ \ \textcolor{comment}{\#\ Afficher\ le\ texte\ du\ score\ en\ haut\ à\ gauche\ de\ l'écran}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00104}00104\ \ \ \ \ \ \ \ \ pygame.display.update()\ \ \textcolor{comment}{\#\ Mettre\ à\ jour\ l'écran}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00105}00105\ \ \ \ \ \ \ \ \ CLOCK.tick(FPS)\ \ \textcolor{comment}{\#\ Limiter\ le\ jeu\ à\ un\ certain\ nombre\ de\ FPS}}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00107}00107\ \textcolor{keywordflow}{if}\ \_\_name\_\_\ ==\ \textcolor{stringliteral}{"{}\_\_main\_\_"{}}:}
+\DoxyCodeLine{\Hypertarget{game_8py_source_l00108}00108\ \ \ \ \ main\_menu()\ \ \textcolor{comment}{\#\ Appeler\ la\ fonction\ main\_menu\ pour\ commencer\ le\ jeu}}
+
+\end{DoxyCode}

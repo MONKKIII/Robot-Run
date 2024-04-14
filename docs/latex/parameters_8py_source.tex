@@ -1,0 +1,94 @@
+\doxysection{parameters.\+py}
+\hypertarget{parameters_8py_source}{}\label{parameters_8py_source}\index{C:/Users/MSI/Desktop/Cours/Épreuve Finale BTS/Projet/Robot Run/parameters.py@{C:/Users/MSI/Desktop/Cours/Épreuve Finale BTS/Projet/Robot Run/parameters.py}}
+\mbox{\hyperlink{parameters_8py}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00001}\mbox{\hyperlink{namespaceparameters}{00001}}\ \textcolor{keyword}{import}\ pygame}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00002}00002\ \textcolor{keyword}{import}\ sys}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00004}00004\ \textcolor{comment}{\#\ Charger\ la\ musique\ de\ fond}}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00005}00005\ pygame.mixer.music.load(\textcolor{stringliteral}{"{}sfx/music/game\_music.wav"{}})}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00006}00006\ pygame.mixer.music.play(-\/1)\ \ \textcolor{comment}{\#\ Jouer\ la\ musique\ en\ boucle}}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00007}00007\ pygame.mixer.music.set\_volume(0.2)}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00009}00009\ \textcolor{comment}{\#\ Fonction\ pour\ dessiner\ un\ curseur}}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00010}\mbox{\hyperlink{namespaceparameters_a70a6421f8e37940a7541c9dd7236db41}{00010}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceparameters_a70a6421f8e37940a7541c9dd7236db41}{draw\_slider}}(screen,\ x,\ y,\ width,\ height,\ value):}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00011}00011\ \ \ \ \ \textcolor{comment}{\#\ Dessiner\ la\ barre\ du\ curseur}}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00012}00012\ \ \ \ \ pygame.draw.rect(screen,\ (255,\ 255,\ 255),\ (x,\ y,\ width,\ height),\ 2)}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00013}00013\ \ \ \ \ \textcolor{comment}{\#\ Dessiner\ le\ curseur}}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00014}00014\ \ \ \ \ cursor\_pos\ =\ (x\ +\ int(value\ *\ width),\ y\ +\ height\ //\ 2)}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00015}00015\ \ \ \ \ pygame.draw.circle(screen,\ (255,\ 0,\ 0),\ cursor\_pos,\ 10)}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00017}00017\ \textcolor{comment}{\#\ Fonction\ pour\ mettre\ à\ jour\ la\ valeur\ du\ curseur\ en\ fonction\ de\ la\ position\ de\ la\ souris}}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00018}\mbox{\hyperlink{namespaceparameters_ad8972f4e39de3d73d3ab62ecb672c77a}{00018}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceparameters_ad8972f4e39de3d73d3ab62ecb672c77a}{update\_slider\_value}}(mouse\_pos,\ slider\_rect):}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00019}00019\ \ \ \ \ slider\_width\ =\ slider\_rect.width}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00020}00020\ \ \ \ \ relative\_pos\ =\ mouse\_pos[0]\ -\/\ slider\_rect.left}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00021}00021\ \ \ \ \ value\ =\ max(0,\ min(1,\ relative\_pos\ /\ slider\_width))}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00022}00022\ \ \ \ \ \textcolor{keywordflow}{return}\ value}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00024}\mbox{\hyperlink{namespaceparameters_a714884e3d20a384189825222a55384b5}{00024}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceparameters_a714884e3d20a384189825222a55384b5}{parameters\_screen}}(screen):}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00025}00025\ \ \ \ \ running\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00026}00026\ \ \ \ \ slider\_value\_music\ =\ 0.2\ \ \textcolor{comment}{\#\ Valeur\ initiale\ du\ curseur\ "{}Musique"{}}}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00027}00027\ \ \ \ \ volume\ =\ 0.2\ \ \textcolor{comment}{\#\ Volume\ initial\ de\ la\ musique}}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00028}00028\ \ \ \ \ slider\_value\_sound\_effects\ =\ 0.3\ \ \textcolor{comment}{\#\ Valeur\ initiale\ du\ curseur\ "{}Effets\ sonores"{}}}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00030}00030\ \ \ \ \ dragging\_slider\ =\ \textcolor{keywordtype}{None}\ \ \textcolor{comment}{\#\ Variable\ pour\ suivre\ quel\ curseur\ est\ en\ train\ d'être\ déplacé}}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00032}00032\ \ \ \ \ \textcolor{keywordflow}{while}\ running:}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00033}00033\ \ \ \ \ \ \ \ \ screen.fill((0,\ 0,\ 0))\ \ \textcolor{comment}{\#\ Remplir\ l'écran\ en\ noir}}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00035}00035\ \ \ \ \ \ \ \ \ parameter\_label\ =\ pygame.font.SysFont(\textcolor{keywordtype}{None},\ 48).render(\textcolor{stringliteral}{"{}Parametre"{}},\ \textcolor{keyword}{True},\ (255,\ 255,\ 255))}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00036}00036\ \ \ \ \ \ \ \ \ parameter\_rect\ =\ parameter\_label.get\_rect(center=(screen.get\_width()\ //\ 2,\ 50))\ \ \textcolor{comment}{\#\ Centrer\ le\ texte\ horizontalement}}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00037}00037\ \ \ \ \ \ \ \ \ screen.blit(parameter\_label,\ parameter\_rect)}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Afficher\ les\ curseurs\ et\ les\ libellés}}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00040}00040\ \ \ \ \ \ \ \ \ slider\_rect\_music\ =\ pygame.Rect(250,\ 150,\ 250,\ 30)\ \ \textcolor{comment}{\#\ Curseur\ "{}Musique"{}}}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00041}00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceparameters_a70a6421f8e37940a7541c9dd7236db41}{draw\_slider}}(screen,\ 250,\ 150,\ 250,\ 30,\ slider\_value\_music)}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00042}00042\ \ \ \ \ \ \ \ \ music\_label\ =\ pygame.font.SysFont(\textcolor{keywordtype}{None},\ 36).render(\textcolor{stringliteral}{"{}Musique"{}},\ \textcolor{keyword}{True},\ (255,\ 255,\ 255))}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00043}00043\ \ \ \ \ \ \ \ \ screen.blit(music\_label,\ (50,\ 150))}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00045}00045\ \ \ \ \ \ \ \ \ slider\_rect\_sound\_effects\ =\ pygame.Rect(250,\ 250,\ 250,\ 30)\ \ \textcolor{comment}{\#\ Curseur\ "{}Effets\ sonores"{}}}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00046}00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceparameters_a70a6421f8e37940a7541c9dd7236db41}{draw\_slider}}(screen,\ 250,\ 250,\ 250,\ 30,\ slider\_value\_sound\_effects)}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00047}00047\ \ \ \ \ \ \ \ \ sound\_effects\_label\ =\ pygame.font.SysFont(\textcolor{keywordtype}{None},\ 36).render(\textcolor{stringliteral}{"{}Effets\ sonores"{}},\ \textcolor{keyword}{True},\ (255,\ 255,\ 255))}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00048}00048\ \ \ \ \ \ \ \ \ screen.blit(sound\_effects\_label,\ (50,\ 250))}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Afficher\ les\ pourcentages\ des\ curseurs\ à\ droite}}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00051}00051\ \ \ \ \ \ \ \ \ font\ =\ pygame.font.SysFont(\textcolor{keywordtype}{None},\ 36)}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00052}00052\ \ \ \ \ \ \ \ \ music\_text\ =\ font.render(\textcolor{stringliteral}{"{}\{:.0\%\}"{}}.format(slider\_value\_music),\ \textcolor{keyword}{True},\ (255,\ 255,\ 255))}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00053}00053\ \ \ \ \ \ \ \ \ screen.blit(music\_text,\ (550,\ 150))}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00054}00054\ \ \ \ \ \ \ \ \ sound\_effects\_text\ =\ font.render(\textcolor{stringliteral}{"{}\{:.0\%\}"{}}.format(slider\_value\_sound\_effects),\ \textcolor{keyword}{True},\ (255,\ 255,\ 255))}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00055}00055\ \ \ \ \ \ \ \ \ screen.blit(sound\_effects\_text,\ (550,\ 250))}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00057}00057\ \ \ \ \ \ \ \ \ close\_parameters\_image\ =\ pygame.transform.scale(pygame.image.load(\textcolor{stringliteral}{"{}images/close.png"{}}),\ (62,\ 62))}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00058}00058\ \ \ \ \ \ \ \ \ close\_parameters\_rect\ =\ close\_parameters\_image.get\_rect()}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00059}00059\ \ \ \ \ \ \ \ \ screen.blit(close\_parameters\_image,\ (820,\ 10))}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Mettre\ à\ jour\ le\ volume\ de\ la\ musique\ en\ fonction\ de\ la\ valeur\ du\ curseur}}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00062}00062\ \ \ \ \ \ \ \ \ pygame.mixer.music.set\_volume(slider\_value\_music)}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00064}00064\ \ \ \ \ \ \ \ \ pygame.display.update()}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00066}00066\ \ \ \ \ \textcolor{keywordflow}{for}\ event\ \textcolor{keywordflow}{in}\ pygame.event.get():}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ event.type\ ==\ pygame.QUIT:}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ pygame.quit()}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ sys.exit()}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ event.type\ ==\ pygame.MOUSEBUTTONDOWN:}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ mouse\_pos\ =\ pygame.mouse.get\_pos()}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ slider\_rect\_music.collidepoint(mouse\_pos):}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dragging\_slider\ =\ \textcolor{stringliteral}{"{}music"{}}\ \ \textcolor{comment}{\#\ Définir\ le\ curseur\ à\ déplacer\ sur\ "{}Musique"{}}}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ slider\_rect\_sound\_effects.collidepoint(mouse\_pos):}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dragging\_slider\ =\ \textcolor{stringliteral}{"{}sound\_effects"{}}\ \ \textcolor{comment}{\#\ Définir\ le\ curseur\ à\ déplacer\ sur\ "{}Effets\ sonores"{}}}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ close\_parameters\_rect.collidepoint(event.pos):\ \ \textcolor{comment}{\#\ Vérifier\ si\ l'image\ de\ fermeture\ est\ cliquée}}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}menu"{}}\ \ \textcolor{comment}{\#\ Retourner\ "{}menu"{}\ pour\ indiquer\ que\ vous\ souhaitez\ revenir\ au\ menu\ principal}}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00078}00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ event.type\ ==\ pygame.MOUSEBUTTONUP:}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ dragging\_slider\ =\ \textcolor{keywordtype}{None}\ \ \textcolor{comment}{\#\ Arrêter\ de\ déplacer\ le\ curseur\ lorsque\ le\ bouton\ de\ la\ souris\ est\ relâché}}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ event.type\ ==\ pygame.MOUSEMOTION\ \textcolor{keywordflow}{and}\ dragging\_slider\ \textcolor{keywordflow}{is}\ \textcolor{keywordflow}{not}\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ mouse\_pos\ =\ pygame.mouse.get\_pos()}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ dragging\_slider\ ==\ \textcolor{stringliteral}{"{}music"{}}:}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ slider\_value\_music\ =\ \mbox{\hyperlink{namespaceparameters_ad8972f4e39de3d73d3ab62ecb672c77a}{update\_slider\_value}}(mouse\_pos,\ slider\_rect\_music)}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ dragging\_slider\ ==\ \textcolor{stringliteral}{"{}sound\_effects"{}}:}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ slider\_value\_sound\_effects\ =\ \mbox{\hyperlink{namespaceparameters_ad8972f4e39de3d73d3ab62ecb672c77a}{update\_slider\_value}}(mouse\_pos,\ slider\_rect\_sound\_effects)}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00087}00087\ \textcolor{comment}{\#\ Exemple\ d'utilisation\ dans\ votre\ programme\ principal\ :}}
+\DoxyCodeLine{\Hypertarget{parameters_8py_source_l00088}00088\ \textcolor{comment}{\#\ parameters\_screen(SCREEN)}}
+
+\end{DoxyCode}
